@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Karachi city by ayan | Official website</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:radial-gradient(circle at top,#0e4c75,#041c2c);
+    color:white;
+    overflow-x:hidden;
+    perspective:1500px;
+}
+
+/* ===== STARS ===== */
+.stars{position:fixed;inset:0;z-index:0;pointer-events:none}
+.star{
+    position:absolute;
+    background:#fff4b0;
+    border-radius:50%;
+    animation:twinkle 2s infinite alternate, drift linear infinite;
+}
+@keyframes twinkle{from{opacity:.2}to{opacity:1}}
+@keyframes drift{from{transform:translateY(0)}to{transform:translateY(-120vh)}}
+
+/* ===== WATERMARK ===== */
+.watermark{
+    position:fixed;inset:0;
+    display:flex;justify-content:center;align-items:center;
+    font-size:140px;font-weight:900;letter-spacing:8px;
+    color:rgba(255,255,255,.06);
+    transform:rotate(-25deg);
+    pointer-events:none;z-index:0;
+}
+
+/* ===== HEADING ===== */
+h1{
+    text-align:center;
+    margin:40px 0;
+    font-size:52px;
+    background:linear-gradient(90deg,#6dd5ff,#fbd786,#f7797d);
+    -webkit-background-clip:text;
+    color:transparent;
+    letter-spacing:5px;
+    animation:fadeUp 1.5s ease forwards;
+    opacity:0;
+    transition:.4s;
+}
+h1:hover{
+    text-shadow:0 0 30px rgba(255,215,120,.9);
+    transform:scale(1.06);
+}
+
+/* ===== IMAGE FRAME ===== */
+.image-frame{
+    margin:60px auto;
+    width:90%;
+    max-width:1000px;
+    padding:30px;
+    border-radius:35px;
+    background:rgba(255,255,255,.05);
+    border:3px solid #fbd786;
+    backdrop-filter:blur(6px);
+    box-shadow:0 20px 60px rgba(0,0,0,.8);
+    animation:fadeUp 1.5s ease .4s forwards;
+    opacity:0;
+    position:relative;
+    z-index:2;
+}
+.image-box{
+    display:flex;
+    gap:40px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+/* ===== IMAGES ===== */
+.image-box img{
+    width:420px;
+    height:260px;
+    object-fit:cover;
+    border-radius:30px;
+    border:3px solid #fbd786;
+    transform-style:preserve-3d;
+    transition:.25s;
+    box-shadow:0 15px 35px rgba(0,0,0,.7);
+    animation:imgFloat 4s ease-in-out infinite;
+}
+@keyframes imgFloat{
+    0%,100%{transform:rotateX(4deg) rotateY(-4deg)}
+    50%{transform:rotateX(-4deg) rotateY(4deg)}
+}
+.image-box img:hover{
+    box-shadow:
+        0 0 40px rgba(255,215,120,.9),
+        inset 0 0 30px rgba(255,215,120,.7);
+    border-color:#fff4b0;
+}
+
+/* ===== PARAGRAPHS ===== */
+p{
+    width:85%;
+    margin:30px auto;
+    font-size:19px;
+    line-height:2.1;
+    background:rgba(0,0,0,.25);
+    padding:28px;
+    border-radius:20px;
+    backdrop-filter:blur(6px);
+    box-shadow:0 10px 30px rgba(0,0,0,.6);
+    animation:fadeUp 1.5s ease forwards;
+    opacity:0;
+    transition:.35s;
+}
+p:hover{
+    transform:translateY(-12px) scale(1.03);
+    box-shadow:0 0 40px rgba(255,215,120,.6);
+}
+
+/* ===== CITY PULSE ===== */
+.city-pulse{
+    width:85%;
+    margin:70px auto;
+    padding:35px;
+    border-left:6px solid #fbd786;
+    background:rgba(0,0,0,.3);
+    border-radius:20px;
+    box-shadow:inset 0 0 20px rgba(255,255,255,.1);
+    animation:fadeUp 1.5s ease 1.9s forwards;
+    opacity:0;
+    transition:.4s;
+}
+.city-pulse:hover{
+    box-shadow:0 0 45px rgba(255,215,120,.7);
+}
+.city-pulse h2{
+    font-size:34px;
+    letter-spacing:3px;
+    background:linear-gradient(90deg,#fff,#fbd786,#6dd5ff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+/* ===== BUTTONS ===== */
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    margin:60px 0 80px;
+    animation:fadeUp 1.5s ease 2.2s forwards;
+    opacity:0;
+}
+.buttons button{
+    background:#000;
+    color:#fbd786;
+    border:2px solid #fbd786;
+    padding:14px 28px;
+    font-size:18px;
+    border-radius:30px;
+    cursor:pointer;
+    transition:.35s;
+}
+.buttons button:hover{
+    transform:translateY(-6px) scale(1.12);
+    box-shadow:
+        0 0 30px rgba(255,215,120,.9),
+        inset 0 0 20px rgba(255,215,120,.7);
+}
+.buttons button:active{
+    transform:scale(.95);
+}
+
+/* ===== ANIM ===== */
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(50px)}
+    to{opacity:1;transform:translateY(0)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+<div class="watermark">Ayan ur Rehman™</div>
+
+<h1>Welcome to Karachi City</h1>
+
+<div class="image-frame">
+    <div class="image-box">
+        <img src="1.jpg">
+        <img src="11.jpg">
+    </div>
+</div>
+
+<p>
+Karachi is Pakistan’s largest metropolitan city and the true economic backbone of the nation.
+It is a place where millions of individuals arrive with dreams of success, stability, and growth.
+The city reflects determination and resilience, where every road, market, and neighborhood carries
+stories of struggle, effort, and achievement built through years of hard work.
+</p>
+
+<p>
+Located along the Arabian Sea, Karachi presents a rare contrast between natural beauty and intense urban life.
+Calm sea breezes coexist with crowded streets, while peaceful mornings slowly transform into energetic nights.
+This constant movement creates a powerful rhythm that defines Karachi as a city that never truly rests.
+</p>
+
+<p>
+Karachi is a melting pot of cultures, languages, and traditions where people from all regions live together.
+Despite its challenges, the city continues to grow through unity and diversity.
+Karachiites adapt quickly, stand strong during difficult times, and move forward with confidence and courage.
+</p>
+
+<p>
+More than just buildings and infrastructure, Karachi is an experience that shapes personality and mindset.
+Living in this city teaches patience, resilience, independence, and ambition.
+It pushes people to think creatively, act decisively, and dream without limits, turning Karachi into a lifestyle rather than just a location.
+</p>
+
+<div class="city-pulse">
+<h2>THE PULSE OF KARACHI</h2>
+<p>
+Every sound, every movement, and every wave touching the shore represents the heartbeat of Karachi.
+The city breathes ambition, creativity, and survival.
+It never sleeps because millions of dreams are constantly in motion, transforming effort into opportunity
+and challenges into strength with unstoppable energy.
+</p>
+</div>
+
+<div class="buttons">
+<a href="index.html"><button>1</button></a>
+<a href="page2.html"><button>2</button></a>
+<a href="page3.html"><button>3</button></a>
+<a href="page4.html"><button>4</button></a>
+</div>
+
+<script>
+const s=document.querySelector('.stars');
+for(let i=0;i<450;i++){
+ let d=document.createElement('div');
+ d.className='star';
+ let size=Math.random()*2+1;
+ d.style.width=size+'px';
+ d.style.height=size+'px';
+ d.style.left=Math.random()*100+'%';
+ d.style.top=Math.random()*100+'%';
+ d.style.animationDuration=1+Math.random()*4+'s';
+ s.appendChild(d);
+}
+
+/* IMAGE REAL TILT */
+document.querySelectorAll('.image-box img').forEach(img=>{
+ img.addEventListener('mousemove',e=>{
+  const r=img.getBoundingClientRect();
+  const x=e.clientX-r.left;
+  const y=e.clientY-r.top;
+  const rx=-(y/r.height-0.5)*18;
+  const ry=(x/r.width-0.5)*18;
+  img.style.transform=`rotateX(${rx}deg) rotateY(${ry}deg) scale(1.08)`;
+ });
+ img.addEventListener('mouseleave',()=>{
+  img.style.transform='';
+ });
+});
+</script>
+
+</body>
+</html>

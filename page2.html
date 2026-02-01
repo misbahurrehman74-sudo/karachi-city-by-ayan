@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Karachi City - Page 2</title>
+    <style>
+        /* ===== BODY ===== */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #2d132c; /* page 2 color */
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow-x: hidden;
+            perspective:1500px;
+        }
+
+        /* ===== ANIMATED STARS ===== */
+        .stars {
+            position: fixed;
+            top:0; left:0;
+            width:100%; height:100%;
+            z-index:0;
+            pointer-events:none;
+        }
+        .star {
+            position:absolute;
+            background: rgba(255,243,176,0.7);
+            border-radius:50%;
+            animation: twinkle 3s infinite ease-in-out, floatStar linear infinite;
+        }
+        @keyframes twinkle {
+            0%,100% {opacity:0.3;}
+            50% {opacity:1;}
+        }
+        @keyframes floatStar {
+            0% {transform: translateY(0);}
+            100% {transform: translateY(-120vh);}
+        }
+
+        /* ===== WATERMARK ===== */
+        .watermark {
+            position: fixed;
+            top:50%; left:50%;
+            transform: translate(-50%,-50%) rotate(-25deg);
+            font-size:120px;
+            font-weight:bold;
+            color: rgba(255,255,255,0.12);
+            pointer-events:none;
+            z-index:0;
+            user-select:none;
+            white-space: nowrap;
+        }
+
+        /* ===== HEADING ===== */
+        h1 {
+            background: linear-gradient(to right, #801336, #9b2f5c, #b84584);
+            padding: 30px;
+            margin: 35px auto 40px auto;
+            border-top: 5px solid #f4d35e;
+            border-bottom: 5px solid #f4d35e;
+            border-radius: 16px;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+            width: 85%;
+            position: relative;
+            z-index:1;
+            opacity:0;
+            transform: translateY(50px);
+            animation: fadeUp 1.2s ease forwards 0.3s;
+            transition:.4s;
+        }
+        h1:hover{
+            text-shadow:0 0 30px rgba(244,211,94,.9);
+            transform:scale(1.06);
+        }
+
+        /* ===== IMAGE FRAME ===== */
+        .image-frame {
+            margin: 40px auto 50px auto;
+            padding: 30px;
+            background: rgba(255,255,255,0.08);
+            border: 4px double #f4d35e;
+            border-radius: 35px;
+            width: fit-content;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            position: relative;
+            z-index:1;
+            opacity:0;
+            transform: translateY(50px);
+            animation: fadeUp 1.2s ease forwards 0.6s;
+        }
+        .image-box {
+            display:flex;
+            justify-content:center;
+            gap:30px;
+            flex-wrap:wrap;
+        }
+        .image-box img {
+            width:420px; height:260px;
+            object-fit:cover;
+            border-radius:35px;
+            border:4px solid #f4d35e;
+            transition:0.25s ease;
+            box-shadow:0 15px 35px rgba(0,0,0,.7);
+            transform: rotateX(-3deg) rotateY(3deg); /* initial tilt */
+        }
+        .image-box img:hover {
+            transform: rotateX(6deg) rotateY(-15deg) scale(1.08);
+            box-shadow:0 0 35px rgba(244,211,94,0.9),
+                       inset 0 0 25px rgba(244,211,94,0.5);
+            border-color:#fff4b0;
+        }
+
+        /* ===== PARAGRAPHS ===== */
+        p {
+            width:80%;
+            margin:22px auto;
+            font-size:18px;
+            line-height:1.9;
+            text-align:justify;
+            color:#fff7cc;
+            position:relative;
+            z-index:1;
+            text-shadow:0 0 6px rgba(255,255,200,0.3);
+            opacity:0;
+            transform: translateY(50px);
+            animation: fadeUp 1s ease forwards;
+            transition:.35s;
+        }
+        p:hover{
+            transform:translateY(-10px) scale(1.02);
+            box-shadow:0 0 30px rgba(244,211,94,0.6);
+        }
+        p:nth-of-type(1){animation-delay:0.8s;}
+        p:nth-of-type(2){animation-delay:1.1s;}
+        p:nth-of-type(3){animation-delay:1.4s;}
+        p:nth-of-type(4){animation-delay:1.7s;}
+
+        /* ===== CITY PULSE ===== */
+        .city-pulse {
+            width:85%;
+            margin:50px auto;
+            padding:30px;
+            background: rgba(0,0,0,0.25);
+            border-left:6px solid #f4d35e;
+            border-radius:18px;
+            box-shadow: inset 0 0 15px rgba(255,255,255,0.08);
+            position:relative;
+            z-index:1;
+            opacity:0;
+            transform: translateY(50px);
+            animation: fadeUp 1s ease forwards 2s;
+            transition:.35s;
+        }
+        .city-pulse:hover{
+            box-shadow: 0 0 45px rgba(244,211,94,0.7);
+        }
+        .city-pulse h2 {
+            color:#f4d35e;
+            letter-spacing:2px;
+        }
+
+        /* ===== BUTTONS ===== */
+        .buttons {
+            margin:45px 0 60px 0;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:18px;
+            flex-wrap:wrap;
+            position:relative;
+            z-index:1;
+            opacity:0;
+            transform: translateY(50px);
+            animation: fadeUp 1s ease forwards 2.3s;
+        }
+        .buttons button {
+            background: linear-gradient(135deg, #222, #444);
+            color:#ffd700;
+            border:2px solid #000;
+            padding:14px 30px;
+            font-size:17px;
+            border-radius:30px;
+            cursor:pointer;
+            box-shadow:0 8px 15px rgba(0,0,0,0.6);
+            transition:0.35s ease;
+        }
+        .buttons button:hover {
+            background: linear-gradient(135deg, #555, #777);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow:0 0 30px rgba(244,211,94,0.9),
+                       inset 0 0 20px rgba(244,211,94,0.7);
+            border-color:#ffd700;
+            color:#2d132c;
+        }
+
+        /* ===== ANIMATION ===== */
+        @keyframes fadeUp {
+            0% {opacity:0; transform:translateY(50px);}
+            100% {opacity:1; transform:translateY(0);}
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="stars"></div>
+<div class="watermark">Ayan ur Rehman</div>
+
+<h1>Karachi – History</h1>
+
+<div class="image-frame">
+    <div class="image-box">
+        <img src="2.jpg" alt="Karachi City">
+        <img src="22.jpg" alt="Karachi City">
+    </div>
+</div>
+
+<!-- DESCRIPTIVE PARAGRAPHS -->
+<p>
+Karachi, stretching along the Arabian Sea, is more than a city—it is a living, breathing mosaic of history, culture, and ambition. Each street hums with stories of merchants, dreamers, and families who have shaped the city’s identity over centuries. The blend of colonial architecture and modern skyscrapers narrates the journey from a small fishing village to a sprawling metropolis.
+</p>
+<p>
+The post-independence era brought waves of migration, turning Karachi into a cultural kaleidoscope. Neighborhoods buzz with languages, cuisines, and traditions from every corner of Pakistan. Markets overflow with spices, fabrics, and colors, while cafes and streets showcase the fusion of local and global influences. The energy is palpable, day or night, painting a vibrant portrait of life in motion.
+</p>
+<p>
+Despite rapid urbanization, Karachi’s natural beauty remains captivating. Beaches greet early risers with golden light, and the waves tell tales of fishermen whose daily struggles embody resilience. Sunset over Clifton and the lively promenade highlight contrasts—between nature and urbanity, tranquility and chaos, old and new—making Karachi eternally mesmerizing.
+</p>
+<p>
+Every citizen, from students to laborers, contributes to Karachi’s heartbeat. The city molds character through challenges, from traffic jams to economic hurdles, teaching adaptability, perseverance, and ambition. The rhythm of life here is relentless, but it produces a generation of creative, industrious, and fearless individuals who carry Karachi’s spirit wherever they go.
+</p>
+
+<div class="city-pulse">
+    <h2>THE PULSE OF KARACHI</h2>
+    <p>
+Every honking horn, bustling street, and crashing coastal wave adds to Karachi’s heartbeat. Its energy is infectious, from the creative studios and thriving businesses to the night markets alive with music and laughter. The city’s pulse is a reflection of dreams, challenges, and the unyielding spirit of millions striving to create, survive, and thrive in a metropolis that never sleeps.
+    </p>
+</div>
+
+<div class="buttons">
+    <a href="index.html"><button>1</button></a>
+    <a href="page2.html"><button>2</button></a>
+    <a href="page3.html"><button>3</button></a>
+    <a href="page4.html"><button>4</button></a>
+</div>
+
+<script>
+const starsContainer=document.querySelector('.stars');
+for(let i=0;i<300;i++){
+    let star=document.createElement('div');
+    star.classList.add('star');
+    let size=Math.random()*2+1;
+    star.style.width=size+'px';
+    star.style.height=size+'px';
+    star.style.top=Math.random()*100+'%';
+    star.style.left=Math.random()*100+'%';
+    star.style.animationDuration=(2+Math.random()*4)+'s';
+    starsContainer.appendChild(star);
+}
+
+/* IMAGE TILT ON MOUSE MOVE */
+document.querySelectorAll('.image-box img').forEach(img=>{
+    img.addEventListener('mousemove', e=>{
+        const rect = img.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const rx = -(y/rect.height - 0.5)*15;
+        const ry = (x/rect.width - 0.5)*15;
+        img.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) scale(1.08)`;
+    });
+    img.addEventListener('mouseleave', ()=>{
+        img.style.transform = 'rotateX(-3deg) rotateY(3deg)'; // return to initial tilt
+    });
+});
+</script>
+
+</body>
+</html>
